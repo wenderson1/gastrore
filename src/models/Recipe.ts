@@ -1,4 +1,4 @@
-import { User } from "./User";
+/*import { User } from "./User";
 
 @Entity
 class Recipe{
@@ -32,4 +32,4 @@ class Recipe{
 
 }
 
-export { Recipe };
+export { Recipe };*/

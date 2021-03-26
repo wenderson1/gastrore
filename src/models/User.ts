@@ -1,12 +1,13 @@
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import { v4 as uuid} from 'uuid';
 
-
-@Entity
+@Entity("users")
 class User{
 
     @PrimaryColumn()
     readonly id: string;
 
-    @Column
+    @Column()
     nickname: string;
 
     @Column()
@@ -15,8 +16,10 @@ class User{
     @Column()
     password: string;
 
-    @Column()
-    link_photo: string;
+    @CreateDateColumn()
+    created_at: Date;
+
+
 
     constructor(){
         if (!this.id)

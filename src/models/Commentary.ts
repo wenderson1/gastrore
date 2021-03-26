@@ -1,4 +1,4 @@
-import { Recipe } from "./Recipe";
+/*import { Recipe } from "./Recipe";
 
 class Comentary{
     @PrimaryColumn()
@@ -27,4 +27,4 @@ class Comentary{
     }
 }
 
-export { Comentary };
+export { Comentary };*/

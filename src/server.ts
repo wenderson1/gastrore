@@ -1,18 +1,15 @@
-import express from 'express';
+import 'reflect-metadata';
+import express, { NextFunction,Request, Response } from 'express';
+import './database';//não é necessario especificar que é um index
+import { router } from './routes';
+
 
 const app = express();
 
 
 
-
-
-app.get("/", (request, response) => {
-    return response.send("Olá mundo");
-});
-
-app.post("/", (request, response) => {
-    return response.json({name: "Salvado!"});
-});
+app.use(express.json());
+app.use(router);
 
 app.listen(3333, () => console.log("Server is running"));
 
