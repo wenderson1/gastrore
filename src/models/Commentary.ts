@@ -1,25 +1,27 @@
-/*import { Recipe } from "./Recipe";
+import { v4 as uuid} from 'uuid';
+import { User } from './User';
 
 class Comentary{
-    @PrimaryColumn()
+   // @PrimaryColumn()
     readonly id: string;
 
-    @Column
+    //@Column
     comment: string;
 
-    @Column
+   // @Column
     like: number;
 
-    @Column
+    //@Column
     dislike: number;
 
-    @ManyToOne(() => User)
-    @JoinColumn({name:"user_id"})
+   // @ManyToOne(() => User)
+   //@JoinColumn({name:"user_id"})
     user: User; //chave fk
 
-    @ManyToOne(() => Recipe)
-    @JoinColumn({name:"recipe_id"})
-    recipe: Recipe; //chave fk
+    //@CreateDateColumn()
+    created_at: Date;
+
+
 
     constructor(){
         if (!this.id)
@@ -27,4 +29,4 @@ class Comentary{
     }
 }
 
-export { Comentary };*/
+export { Comentary };
