@@ -1,37 +1,38 @@
 import { User } from "./User";
 import { v4 as uuid} from 'uuid';
 import { Comentary } from "./Commentary";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
 
-//@Entity
+@Entity("recipe")
 class Recipe{
 
-   // @PrimaryColumns
+    @PrimaryColumn()
     readonly id: string;
 
-    // @Columns
+    @Column()
     title:string
 
-    // @Columns
+    @Column()
     ingredients: string
     
-  //   @Columns
+    @Column()
     preparation_mode: string
 
-  //   @Columns
+    @Column()
     like:number;
 
-   //  @Columns
+    @Column()
     dislike: number;
     
-    //@CreateDateColumn()
+    @CreateDateColumn()
     created_at: Date;
 
-  //   @ManyToOne(() => User)
-  //   @JoinColumn({name:"user_id"})
+    @ManyToOne(() => User)
+    @JoinColumn({name:"user_id"})
     user: User; //chave fk
 
-    //   @ManyToOne(() => Comentary)
-  //   @JoinColumn({name:"commentary_id"})
+    @ManyToMany(() => Comentary)
+    @JoinColumn({name:"commentary_id"})
     commentary: Comentary; //chave fk
 
     constructor() {

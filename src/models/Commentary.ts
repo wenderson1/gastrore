@@ -1,24 +1,26 @@
 import { v4 as uuid} from 'uuid';
 import { User } from './User';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 
+@Entity("commentary")
 class Commentary{
-   // @PrimaryColumn()
+    @PrimaryColumn()
     readonly id: string;
 
-    //@Column
+    @Column()
     comment: string;
 
-   // @Column
+    @Column()
     like: number;
 
-    //@Column
+    @Column()
     dislike: number;
 
-   // @ManyToOne(() => User)
-   //@JoinColumn({name:"user_id"})
+    @ManyToOne(() => User)
+    @JoinColumn({name:"user_id"})
     user: User; //chave fk
 
-    //@CreateDateColumn()
+    @CreateDateColumn()
     created_at: Date;
 
 
