@@ -1,29 +1,38 @@
-/*import { User } from "./User";
+import { User } from "./User";
+import { v4 as uuid} from 'uuid';
+import { Comentary } from "./Commentary";
 
-@Entity
+//@Entity
 class Recipe{
 
-    @PrimaryColumns
+   // @PrimaryColumns
     readonly id: string;
 
-    @Columns
+    // @Columns
     title:string
 
-    @Columns
+    // @Columns
     ingredients: string
     
-    @Columns
+  //   @Columns
     preparation_mode: string
 
-    @Columns
+  //   @Columns
     like:number;
 
-    @Columns
-    dislike:number;
+   //  @Columns
+    dislike: number;
+    
+    //@CreateDateColumn()
+    created_at: Date;
 
-    @ManyToOne(() => User)
-    @JoinColumn({name:"user_id"})
+  //   @ManyToOne(() => User)
+  //   @JoinColumn({name:"user_id"})
     user: User; //chave fk
+
+    //   @ManyToOne(() => Comentary)
+  //   @JoinColumn({name:"commentary_id"})
+    commentary: Comentary; //chave fk
 
     constructor() {
         if (!this.id)
@@ -32,4 +41,4 @@ class Recipe{
 
 }
 
-export { Recipe };*/
+export { Recipe };

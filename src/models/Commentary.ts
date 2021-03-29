@@ -1,7 +1,7 @@
 import { v4 as uuid} from 'uuid';
 import { User } from './User';
 
-class Comentary{
+class Commentary{
    // @PrimaryColumn()
     readonly id: string;
 
@@ -29,4 +29,4 @@ class Comentary{
     }
 }
 
-export { Comentary };
+export { Commentary as Comentary };
