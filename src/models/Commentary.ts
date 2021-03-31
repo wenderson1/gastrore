@@ -11,10 +11,10 @@ class Commentary{
     comment: string;
 
     @Column()
-    like: number;
+    like?: number;
 
     @Column()
-    dislike: number;
+    dislike?: number;
 
     @ManyToOne(() => User)
     @JoinColumn({name:"user_id"})
@@ -25,7 +25,7 @@ class Commentary{
 
 
 
-    constructor(){
+    constructor(comment:string, user:User){
         if (!this.id)
             this.id = uuid();
     }
