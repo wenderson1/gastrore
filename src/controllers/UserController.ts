@@ -1,6 +1,9 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { UserRepository } from '../repositories/UsersRepository';
+import bcryptjs, { hash } from 'bcryptjs';
+
+
 
 class UserController{
 
@@ -36,6 +39,42 @@ class UserController{
 
         return response.json(all);
     }
+
+
+    const NAMESPACE = "User";
+
+    const validateToken = (request: Request, response: Response, next: NextFunction) => {
+        logging.info(NAMESPACE, "Token Validated, user authorized")
+        
+        return response.status(200).json({
+            message:"Authorized"
+        })
+    };
+
+    const register = (request: Request, response: Response, next: NextFunction) => {
+        let { email, password } = request.body;
+
+        bcryptjs.hash(password, 10, (hashError, hash) => {
+            if (hashError)
+            {
+                return response.status(500).json({
+                    message: hashError.message,
+                    error:hashError
+                })
+            }
+        })
+    };
+
+    const login = (request: Request, response: Response, next: NextFunction) => {
+        
+    };
+
+    const getAllusers = (request: Request, response: Response, next: NextFunction) => {
+        
+    };
+
+
+
 }
 
 export { UserController };

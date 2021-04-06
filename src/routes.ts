@@ -11,6 +11,6 @@ const commentaryController = new CommentaryController();
 router.post("/user", userController.create);
 router.get("/user", userController.getAll);
 
-router.post("/commentary", commentaryController.create);
+
 
 export { router };
